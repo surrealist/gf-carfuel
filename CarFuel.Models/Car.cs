@@ -17,7 +17,7 @@ namespace CarFuel.Models {
     public Guid Id { get; set; }
 
     [Required]
-    [StringLength(20)]
+    [StringLength(20)] 
     public string Make { get; set; }
 
     [Required]
