@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 
 namespace CarFuel.Models {
@@ -8,12 +10,21 @@ namespace CarFuel.Models {
     public Car() {
       Make = "Make";
       Model = "Model";
-      FillUps = new List<FillUp>();
+      FillUps = new HashSet<FillUp>();
     }
 
-    public List<FillUp> FillUps { get; set; }
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public Guid Id { get; set; }
+
+    [Required]
+    [StringLength(20)]
     public string Make { get; set; }
+
+    [Required]
+    [StringLength(30)]
     public string Model { get; set; }
+
+    public virtual ICollection<FillUp> FillUps { get; set; }
 
     public double? AverageConsumptionRate {
       get {
@@ -23,13 +34,13 @@ namespace CarFuel.Models {
 
         int? totalDistance = FillUps.Sum(f => f.Distance);
         double? totalLiters = FillUps.Sum(f => f.Liters)
-                             - FillUps.FirstOrDefault()?.Liters; 
-        
+                             - FillUps.FirstOrDefault()?.Liters;
+
         return Math.Round((totalDistance / totalLiters) ?? 0.0,
                          2, MidpointRounding.AwayFromZero);
       }
     }
-     
+
 
     public FillUp AddFillUp(int odometer, double liters) {
       var f = new FillUp() {
@@ -37,7 +48,7 @@ namespace CarFuel.Models {
         Liters = liters
       };
 
-      if (FillUps.Any()) {  
+      if (FillUps.Any()) {
         FillUps.Last().NextFillUp = f;
       }
 
