@@ -49,6 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CarFuelDb.cs" />
+    <Compile Include="CarRepository.cs" />
     <Compile Include="IRepository_T.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoryBase_T.cs" />
