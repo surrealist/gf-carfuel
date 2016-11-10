@@ -16,7 +16,9 @@ namespace CarFuel.Services {
 
     public abstract T Find(params object[] keys);
 
-    public virtual T Add(T item) => _BaseRepo.Add(item);
+    public virtual T Add(T item) {
+      return _BaseRepo.Add(item);
+    }
 
     public virtual IQueryable<T> All() => Query(_ => true);
 
