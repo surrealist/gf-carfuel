@@ -18,10 +18,32 @@ namespace CarFuel.Web.Controllers {
 
     [Authorize]
     public ActionResult Index() {
-      CreateTestCar();
+      //CreateTestCar();
 
       var cars = _carService.All();
       return View(cars);
+    }
+
+    [Authorize]
+    public ActionResult Add() {
+      return View();
+    }
+
+    [Authorize]
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public ActionResult Add(Car item) {
+      if (ModelState.IsValid) {
+        try {
+          _carService.Add(item);
+          _carService.SaveChanges(); 
+          return RedirectToAction("Index");
+        }
+        catch (Exception ex) {
+          ViewBag.Error = ex.Message; 
+        } 
+      }
+      return View(item);
     }
 
     private void CreateTestCar() {
