@@ -16,8 +16,24 @@ namespace CarFuel.Web.Controllers {
     }
 
     public ActionResult Index() {
+      CreateTestCar();
+
       var cars = _carService.All();
       return View(cars);
+    }
+
+    private void CreateTestCar() {
+      var c = new Car();
+      c.Make = "Honda";
+      c.Model = "Jazz";
+      c.PlateNo = "999";
+
+      c.AddFillUp(1000, 40.0);
+      c.AddFillUp(1600, 50.0);
+      c.AddFillUp(2200, 60.0);
+
+      _carService.Add(c);
+      _carService.SaveChanges();
     }
   }
 }

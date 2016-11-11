@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -16,8 +17,15 @@ namespace CarFuel.Models {
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public Guid Id { get; set; }
 
+    [Required, StringLength(10)]
+    public string PlateNo { get; set; }
+
+    [StringLength(30)]
+    public string Color { get; set; }
+
     [Required]
     [StringLength(20)] 
+    [Description("ยี่ห้อรถ")]
     public string Make { get; set; }
 
     [Required]
@@ -34,7 +42,8 @@ namespace CarFuel.Models {
 
         int? totalDistance = FillUps.Sum(f => f.Distance);
         double? totalLiters = FillUps.Sum(f => f.Liters)
-                             - FillUps.FirstOrDefault()?.Liters;
+                             - FillUps.OrderBy(f => f.Odometer)
+                               .FirstOrDefault()?.Liters;
 
         return Math.Round((totalDistance / totalLiters) ?? 0.0,
                          2, MidpointRounding.AwayFromZero);
@@ -49,7 +58,7 @@ namespace CarFuel.Models {
       };
 
       if (FillUps.Any()) {
-        FillUps.Last().NextFillUp = f;
+        FillUps.OrderBy(x => x.Odometer).Last().NextFillUp = f;
       }
 
       FillUps.Add(f);
