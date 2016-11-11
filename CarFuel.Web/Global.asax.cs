@@ -12,6 +12,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using Autofac;
 using Autofac.Integration.Mvc;
+using CarFuel.Web.Services;
 
 namespace CarFuel.Web {
   public class MvcApplication : System.Web.HttpApplication {
@@ -33,7 +34,8 @@ namespace CarFuel.Web {
 
       builder.RegisterType<CarRepository>().As<IRepository<Car>>(); 
 
-      builder.RegisterType<CarService>().As<IService<Car>>(); 
+      builder.RegisterType<CarService>().As<IService<Car>>();
+      builder.RegisterType<UserService>().As<IUserService>();
 
       builder.RegisterType<CarFuelDb>().As<DbContext>();
 

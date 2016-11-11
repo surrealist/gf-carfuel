@@ -26,7 +26,7 @@ namespace CarFuel.Web.Controllers {
       var c = new Car();
       c.Make = "Honda";
       c.Model = "Jazz";
-      c.PlateNo = "999";
+      c.PlateNo = DateTime.Now.Millisecond.ToString();
 
       c.AddFillUp(1000, 40.0);
       c.AddFillUp(1600, 50.0);

@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="CarService.cs" />
     <Compile Include="IService_T.cs" />
+    <Compile Include="IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceBase_T.cs" />
   </ItemGroup>

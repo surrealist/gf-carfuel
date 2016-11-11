@@ -50,6 +50,8 @@ namespace CarFuel.Models {
       }
     }
 
+    [StringLength(40)]
+    public string Owner { get; set; }
 
     public FillUp AddFillUp(int odometer, double liters) {
       var f = new FillUp() {
