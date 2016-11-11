@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 
 namespace CarFuel.Web.Controllers {
+
   public class CarsController : Controller {
 
     private readonly IService<Car> _carService;
@@ -15,6 +16,7 @@ namespace CarFuel.Web.Controllers {
       _carService = carService;
     }
 
+    [Authorize]
     public ActionResult Index() {
       CreateTestCar();
 
