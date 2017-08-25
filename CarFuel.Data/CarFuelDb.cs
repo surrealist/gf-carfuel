@@ -11,6 +11,8 @@ namespace CarFuel.Data {
   public class CarFuelDb : DbContext {
 
     public DbSet<Car> Cars { get; set; }
+    public DbSet<TodoItem> TodoItems { get; set; }
+
 
     protected override void OnModelCreating(DbModelBuilder modelBuilder) {
       modelBuilder

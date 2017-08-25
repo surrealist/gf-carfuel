@@ -32,12 +32,14 @@ namespace CarFuel.Web {
 
       builder.RegisterControllers(typeof(MvcApplication).Assembly);
 
-      builder.RegisterType<CarRepository>().As<IRepository<Car>>(); 
+      builder.RegisterType<CarRepository>().As<IRepository<Car>>();
+      builder.RegisterType<TodoItemRepository>().As<IRepository<TodoItem>>();
 
       builder.RegisterType<CarService>().As<IService<Car>>();
+      builder.RegisterType<TodoItemService>().As<IService<TodoItem>>();
       builder.RegisterType<UserService>().As<IUserService>();
 
-      builder.RegisterType<CarFuelDb>().As<DbContext>();
+      builder.RegisterType<CarFuelDb>().As<DbContext>().InstancePerRequest();
 
       var container = builder.Build();
       DependencyResolver.SetResolver(new AutofacDependencyResolver(container)); 
