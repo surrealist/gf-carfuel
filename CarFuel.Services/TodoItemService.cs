@@ -9,7 +9,10 @@ using CarFuel.Data;
 namespace CarFuel.Services {
   public class TodoItemService : ServiceBase<TodoItem> {
 
-    public TodoItemService(IRepository<TodoItem> baseRepo) : base(baseRepo) {
+    private readonly IUserService userService;
+
+    public TodoItemService(IRepository<TodoItem> baseRepo, IUserService userService) : base(baseRepo) {
+      this.userService = userService;
     }
 
     public override TodoItem Find(params object[] keys) {
@@ -18,11 +21,19 @@ namespace CarFuel.Services {
         .SingleOrDefault();
     }
 
+    public override IQueryable<TodoItem> Query(Func<TodoItem, bool> criteria) {
+      return base.Query(criteria)
+                 .Where(item => item.OwnerId == userService.CurrentUserId())
+                 .AsQueryable();
+    }
+
+
     public override TodoItem Add(TodoItem item) {
       if (Query(c =>!c.IsDone).Count() >=5) {
         throw new Exception("Please complete items before add a new one.");
       }
 
+      item.OwnerId = userService.CurrentUserId();
       return base.Add(item);
     }
 

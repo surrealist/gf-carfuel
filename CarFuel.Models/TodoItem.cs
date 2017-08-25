@@ -17,5 +17,8 @@ namespace CarFuel.Models {
 
     public DateTime AddedDate { get; set; } = DateTime.Now;
 
+    [StringLength(40)]
+    public string OwnerId { get; set; }
+
   }
 }

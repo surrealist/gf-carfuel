@@ -7,6 +7,8 @@ using System.Web;
 using System.Web.Mvc;
 
 namespace CarFuel.Web.Controllers {
+
+  [Authorize]
   public class TodoController : Controller {
     private readonly IService<TodoItem> todoService;
 
@@ -31,8 +33,13 @@ namespace CarFuel.Web.Controllers {
     public ActionResult Create(TodoItem item) {
       if (ModelState.IsValid) {
 
-        todoService.Add(item);
-        todoService.SaveChanges();
+        try {
+          todoService.Add(item);
+          todoService.SaveChanges();
+        }
+        catch (Exception ex) {
+          TempData["error"] = ex.Message;
+        }
 
         return RedirectToAction("Index");
       }

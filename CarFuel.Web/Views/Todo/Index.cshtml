@@ -4,7 +4,15 @@
   ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Todo</h2>
+
+@if (TempData["error"] != null) {
+  <div class="alert alert-warning alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    @TempData["error"]
+  </div>
+}
+
 
 <p>
   @Html.ActionLink("Create New", "Create")
