@@ -74,6 +74,10 @@
     <Compile Include="Migrations\201708251033437_AddTodoItemOwner.Designer.cs">
       <DependentUpon>201708251033437_AddTodoItemOwner.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708251143423_AddTodoItemCompletedDate.cs" />
+    <Compile Include="Migrations\201708251143423_AddTodoItemCompletedDate.Designer.cs">
+      <DependentUpon>201708251143423_AddTodoItemCompletedDate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoryBase_T.cs" />
@@ -104,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708251033437_AddTodoItemOwner.resx">
       <DependentUpon>201708251033437_AddTodoItemOwner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708251143423_AddTodoItemCompletedDate.resx">
+      <DependentUpon>201708251143423_AddTodoItemCompletedDate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

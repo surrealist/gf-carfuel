@@ -43,6 +43,16 @@
         @Html.DisplayFor(modelItem => item.AddedDate)
       </td>
       <td>
+        @if (!item.IsDone) {
+          using (Html.BeginForm("MarkAsComplete", "Todo", new { id = item.Id })) {
+          <button type="submit" class="btn btn-success btn-xs">Done</button>
+          }
+        } else {
+          using (Html.BeginForm("CancelComplete", "Todo", new { id = item.Id })) {
+          <button type="submit" class="btn btn-danger btn-xs">Cancel</button>
+          }
+        }
+
         @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
         @Html.ActionLink("Details", "Details", new { id = item.Id }) |
         @Html.ActionLink("Delete", "Delete", new { id = item.Id })

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using CarFuel.Data;
 
 namespace CarFuel.Services {
-  public class TodoItemService : ServiceBase<TodoItem> {
+  public class TodoItemService : ServiceBase<TodoItem>, ITodoItemService {
 
     private readonly IUserService userService;
 
@@ -37,5 +37,16 @@ namespace CarFuel.Services {
       return base.Add(item);
     }
 
+    public void MarkAsComplete(int id) {
+      var item = Find(id);
+      item.MarkAsComplete();
+      SaveChanges();
+    }
+
+    public void CancelComplete(int id) {
+      var item = Find(id);
+      item.CancelComplete();
+      SaveChanges();
+    }
   }
 }

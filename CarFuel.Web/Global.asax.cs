@@ -36,7 +36,11 @@ namespace CarFuel.Web {
       builder.RegisterType<TodoItemRepository>().As<IRepository<TodoItem>>();
 
       builder.RegisterType<CarService>().As<IService<Car>>();
-      builder.RegisterType<TodoItemService>().As<IService<TodoItem>>();
+
+      builder.RegisterType<TodoItemService>()
+          .As<IService<TodoItem>>()
+          .As<ITodoItemService>();
+
       builder.RegisterType<UserService>().As<IUserService>();
 
       builder.RegisterType<CarFuelDb>().As<DbContext>().InstancePerRequest();

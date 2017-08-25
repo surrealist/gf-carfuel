@@ -9,6 +9,9 @@ namespace CarFuel.Services {
 
     IQueryable<T> All();
     IQueryable<T> Query(Func<T, bool> criteria);
+
+    T Find(params object[] keys);
+
     T Add(T item);
     T Remove(T item);
 

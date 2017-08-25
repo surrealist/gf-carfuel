@@ -20,5 +20,17 @@ namespace CarFuel.Models {
     [StringLength(40)]
     public string OwnerId { get; set; }
 
+    public DateTime? CompletedDate { get; set; } = null;
+
+
+    public void MarkAsComplete() {
+      IsDone = true;
+      CompletedDate = DateTime.Now;
+    }
+
+    public void CancelComplete() {
+      IsDone = false;
+      CompletedDate = null;
+    }
   }
 }

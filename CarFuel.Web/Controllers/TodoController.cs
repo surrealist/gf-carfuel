@@ -1,18 +1,17 @@
 ﻿using CarFuel.Models;
 using CarFuel.Services;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace CarFuel.Web.Controllers {
 
   [Authorize]
   public class TodoController : Controller {
-    private readonly IService<TodoItem> todoService;
 
-    public TodoController(IService<TodoItem> todoService) {
+    private readonly ITodoItemService todoService;
+
+    public TodoController(ITodoItemService todoService) {
       this.todoService = todoService;
     }
 
@@ -33,7 +32,7 @@ namespace CarFuel.Web.Controllers {
     public ActionResult Create(TodoItem item) {
       if (ModelState.IsValid) {
 
-        try {
+        try {   
           todoService.Add(item);
           todoService.SaveChanges();
         }
@@ -45,6 +44,19 @@ namespace CarFuel.Web.Controllers {
       }
       return View(item);
     }
+
+    [HttpPost]
+    public ActionResult MarkAsComplete(int id) {
+      todoService.MarkAsComplete(id);
+      return RedirectToAction("Index");
+    }
+
+    [HttpPost]
+    public ActionResult CancelComplete(int id) {
+      todoService.CancelComplete(id);
+      return RedirectToAction("Index");
+    }
+
 
   }
 }

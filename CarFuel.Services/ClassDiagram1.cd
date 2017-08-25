@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CarFuel.Services.CarService" Collapsed="true">
+    <Position X="10.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAIAEAAAAAAA=</HashCode>
+      <FileName>CarService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarFuel.Services.ServiceBase&lt;T&gt;" Collapsed="true">
+    <Position X="11.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAIAAAAAAAAAAAAEAAAABAAAAAAIAAgAAIAAAAAAAAA=</HashCode>
+      <FileName>ServiceBase_T.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CarFuel.Services.TodoItemService" Collapsed="true">
+    <Position X="12.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIIAAAAAAAAAACAAAAAAAAAAAAIAAgAAAAAAAAAAAg=</HashCode>
+      <FileName>TodoItemService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CarFuel.Data.RepositoryBase&lt;T&gt;" Collapsed="true">
+    <Position X="16.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CarFuel.Data.TodoItemRepository" Collapsed="true">
+    <Position X="17.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="CarFuel.Data.CarRepository" Collapsed="true">
+    <Position X="15.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="CarFuel.Models.Car">
+    <Position X="7.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier />
+    <ShowAsCollectionAssociation>
+      <Property Name="FillUps" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="CarFuel.Models.FillUp">
+    <Position X="10" Y="7.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="CarFuel.Models.TodoItem">
+    <Position X="12.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Interface Name="CarFuel.Services.IService&lt;T&gt;" Collapsed="true">
+    <Position X="11.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAIAAAAAAAAAAAAAAAAABAAAAAAIAAgAAIAAAAAAAAA=</HashCode>
+      <FileName>IService_T.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CarFuel.Services.ITodoItemService" Collapsed="true">
+    <Position X="11.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>ITodoItemService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CarFuel.Services.IUserService" Collapsed="true">
+    <Position X="9.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>IUserService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CarFuel.Data.IRepository&lt;T&gt;">
+    <Position X="16.75" Y="1" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Font Name="Segoe UI" Size="10" />
+</ClassDiagram>

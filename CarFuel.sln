@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.8
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarFuel.Models", "CarFuel.Models\CarFuel.Models.csproj", "{CAC7A7AC-1A9C-4614-8CB7-66C081A24315}"
 EndProject
@@ -14,6 +14,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarFuel.Data", "CarFuel.Data\CarFuel.Data.csproj", "{C834B605-5D7F-40F8-9ECB-14D5E1ACBB48}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarFuel.Services.Facts", "CarFuel.Services.Facts\CarFuel.Services.Facts.csproj", "{CA90CA77-4FBD-45A8-8276-AD08BB22A3BC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{E4F9BC0D-467B-48EC-932E-1495ACCCD02C}"
+	ProjectSection(SolutionItems) = preProject
+		CarFuel.Services\ClassDiagram1.cd = CarFuel.Services\ClassDiagram1.cd
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,5 +53,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CDEF3528-D5D4-408C-BE26-3EA0FFDDECB0}
 	EndGlobalSection
 EndGlobal
